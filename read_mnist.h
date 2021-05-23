@@ -64,7 +64,7 @@ read_mnist::read_mnist()
 	total_pixel = row * col;
 	int_lable = 0;
 	char_image = new unsigned char[total_pixel];
-	matrix* temp = new matrix(output_number, 1);
+	matrix* temp = new matrix(row, col);
 	image = *temp;
 	delete temp;
 	temp = new matrix(output_number, 1);

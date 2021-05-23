@@ -226,7 +226,7 @@ void network::network_compute(int n, int speed, read_mnist& data)
 	for (int i = 0; i < n; i++)
 	{
 		data.get_new();
-		read(data.image.data, 784, data.lable.data, 10);
+		read(data.image.get_data_address(), 784, data.lable.get_data_address(), 10);
 		network_forward_progagation();
 		output(3);
 		network_backward_progagation(speed);

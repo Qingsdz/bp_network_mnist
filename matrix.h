@@ -156,7 +156,7 @@ matrix matrix::operator*(matrix b) //定义矩阵乘法，返回matrix矩阵
 			for (int s = 1; s <= col; s++)//没次乘法需要s次，及矩阵的列数
 			{
 				double temp = get_matrix_value_safe(i, s) * b.get_matrix_value_safe(s, j); //这里一开始temp定义为了int 我的脑子由大坑，找了半天才发现
-				if (temp < 0.00000001) temp = 0.0;  //必须加，不然会使得数据消失，大坑，花了很长时间才找到
+				if (temp < 0.0001) temp = 0.0;  //必须加，不然会使得数据消失，大坑，花了很长时间才找到
 				result += temp;
 			}
 			new_matrix.set_matrix_value_safe(i, j, result);
@@ -179,7 +179,7 @@ int matrix::output_matrix()// 这里输出全部矩阵
 	{
 		for (int j = 1; j <= col; j++)
 		{
-			cout << setw(6) << setprecision(4) << get_matrix_value_safe(i, j) << " ";
+			cout << setw(4) << setprecision(2) << get_matrix_value_safe(i, j) << " ";
 		}
 		cout << endl;
 	}
@@ -243,7 +243,7 @@ matrix hadamard(matrix a, matrix b) //此处定义哈达玛积 两个矩阵对应元素相乘
 	for (int i = 0; i < a.row*a.col; i++)
 	{
 		double temp = a.data[i] * b.data[i];
-		if (temp < 0.000000001) temp = 0;
+		if (temp < 0.00001) temp = 0;
 		new_matrix.data[i] = temp;
 	}
 	return new_matrix;
